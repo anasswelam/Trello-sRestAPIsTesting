@@ -1,0 +1,369 @@
+{
+	"info": {
+		"_postman_id": "c58abe13-1e6e-4145-9fae-f0c276888ec8",
+		"name": "SwaggerCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "checkStatusOfAuthers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check status is OK \", function(){\r",
+							"    pm.expect(pm.response.status).to.equal(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check status code is 200 \", function(){\r",
+							"    pm.expect(pm.response.code).to.equal(200)\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/v1/Authors",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkOwmPropertiesOfAuthers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"    var data = pm.response.json().length ;\r",
+							"    var random = Math.floor(Math.random()*data);\r",
+							"    \r",
+							"pm.test(\"check that response contain id\", function(){\r",
+							"   pm.expect(pm.response.json()[random]).to.haveOwnProperty(\"id\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check that response contain idBook\", function(){\r",
+							"   pm.expect(pm.response.json()[random]).to.haveOwnProperty(\"idBook\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check that response contain firstName\", function(){\r",
+							"   pm.expect(pm.response.json()[random]).to.haveOwnProperty(\"firstName\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check that response contain lastName\", function(){\r",
+							"   pm.expect(pm.response.json()[random]).to.haveOwnProperty(\"lastName\")\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/v1/Authors",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegisterWithValidAuther",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check status is Created \", function(){\r",
+							"    pm.expect(pm.response.status).to.equal(\"Created\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check status code is 201 \", function(){\r",
+							"    pm.expect(pm.response.code).to.equal(201)\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"idBook\": 2,\r\n  \"firstName\": \"Anas\",\r\n  \"lastName\": \"Swelam\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/Authors",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegisterWithoutRequestBody",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check status code is equal 400 \", function(){\r",
+							"    pm.expect(pm.response.code).to.equal(400)\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"idBook\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/Authors",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "searchIdBook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"check status code is 200 OK \", function(){\r",
+							"    pm.expect(pm.response.code).to.equal(200)\r",
+							"    pm.expect(pm.response.status).to.equal(\"OK\")\r",
+							"});\r",
+							"\r",
+							"pm.collectionVariables.set(\"bookID\",2);\r",
+							"var getBookId=pm.collectionVariables.get(\"bookID\")\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Searching with valid idBook should return relative data in response body\", function () {\t\r",
+							"    for(var i=0; i<jsonData.length;i++){\r",
+							"    pm.expect(pm.response.json()[i].idBook).to.equal(getBookId)\r",
+							"    }});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/v1/Authors/authors/books/{{bookID}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"authors",
+						"books",
+						"{{bookID}}"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateFirst&LastName",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"check firstName is updated \", function(){\r",
+							"    pm.expect(pm.response.json().firstName).to.equal(\"Anas\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check lastName is updated \", function(){\r",
+							"    pm.expect(pm.response.json().lastName).to.equal(\"Swelam\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 14,\r\n  \"idBook\": 5,\r\n  \"firstName\": \"Anas\",\r\n  \"lastName\": \"Swelam\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/v1/Authors/{{id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkdatachangedAfterUpdate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"check firstName is updated \", function(){\r",
+							"    pm.expect(pm.response.json().firstName).to.equal(\"Anas\")\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check lastName is updated \", function(){\r",
+							"    pm.expect(pm.response.json().lastName).to.equal(\"Swelam\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/v1/Authors/{{id}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": ""
+		},
+		{
+			"key": "bookID",
+			"value": ""
+		},
+		{
+			"key": "id",
+			"value": ""
+		},
+		{
+			"key": "key",
+			"value": ""
+		},
+		{
+			"key": "token",
+			"value": ""
+		},
+		{
+			"key": "name",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,283 @@
+{
+	"id": "e5e9235c-9cc6-4aed-9b67-ee36f8606c66",
+	"name": "SwaggerCollection",
+	"timestamp": "2022-11-13T10:03:49.507Z",
+	"collection_id": "10568894-c58abe13-1e6e-4145-9fae-f0c276888ec8",
+	"folder_id": 0,
+	"environment_id": "927cdfa7-c618-4ccb-9b52-13c5ba0fc6b5",
+	"totalPass": 10,
+	"totalFail": 5,
+	"results": [
+		{
+			"id": "6972cedd-b5ee-43fc-9a95-42ba9626344e",
+			"name": "checkStatusOfAuthers",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 2129,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check status is OK ": true,
+				"check status code is 200 ": true
+			},
+			"testPassFailCounts": {
+				"check status is OK ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check status code is 200 ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2129
+			],
+			"allTests": [
+				{
+					"check status is OK ": true,
+					"check status code is 200 ": true
+				}
+			]
+		},
+		{
+			"id": "27aa5d37-e1f5-406f-a7bb-e5a0accffd89",
+			"name": "checkOwmPropertiesOfAuthers",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 6823,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check that response contain id": true,
+				"check that response contain idBook": true,
+				"check that response contain firstName": true,
+				"check that response contain lastName": true
+			},
+			"testPassFailCounts": {
+				"check that response contain id": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check that response contain idBook": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check that response contain firstName": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check that response contain lastName": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6823
+			],
+			"allTests": [
+				{
+					"check that response contain id": true,
+					"check that response contain idBook": true,
+					"check that response contain firstName": true,
+					"check that response contain lastName": true
+				}
+			]
+		},
+		{
+			"id": "dc9328c6-9cb1-4f77-ab07-daa31c970b3d",
+			"name": "RegisterWithValidAuther",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 755,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check status is Created ": false,
+				"check status code is 201 ": false
+			},
+			"testPassFailCounts": {
+				"check status is Created ": {
+					"pass": 0,
+					"fail": 1
+				},
+				"check status code is 201 ": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				755
+			],
+			"allTests": [
+				{
+					"check status is Created ": false,
+					"check status code is 201 ": false
+				}
+			]
+		},
+		{
+			"id": "989ea312-15be-4928-aac2-95bc1b7e0516",
+			"name": "RegisterWithoutRequestBody",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
+			"time": 473,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check status code is equal 400 ": false
+			},
+			"testPassFailCounts": {
+				"check status code is equal 400 ": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				473
+			],
+			"allTests": [
+				{
+					"check status code is equal 400 ": false
+				}
+			]
+		},
+		{
+			"id": "55e26369-cfd6-49ec-85bc-76be357e872e",
+			"name": "searchIdBook",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/2",
+			"time": 402,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check status code is 200 OK ": true,
+				"Searching with valid idBook should return relative data in response body": true
+			},
+			"testPassFailCounts": {
+				"check status code is 200 OK ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Searching with valid idBook should return relative data in response body": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				402
+			],
+			"allTests": [
+				{
+					"check status code is 200 OK ": true,
+					"Searching with valid idBook should return relative data in response body": true
+				}
+			]
+		},
+		{
+			"id": "14a08440-62fc-4996-94a3-b789e82bfa37",
+			"name": "UpdateFirst&LastName",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/14",
+			"time": 713,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check firstName is updated ": true,
+				"check lastName is updated ": true
+			},
+			"testPassFailCounts": {
+				"check firstName is updated ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"check lastName is updated ": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				713
+			],
+			"allTests": [
+				{
+					"check firstName is updated ": true,
+					"check lastName is updated ": true
+				}
+			]
+		},
+		{
+			"id": "420be598-cd78-4f1a-9c3e-f2a33aa0a0c3",
+			"name": "checkdatachangedAfterUpdate",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/14",
+			"time": 120,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"check firstName is updated ": false,
+				"check lastName is updated ": false
+			},
+			"testPassFailCounts": {
+				"check firstName is updated ": {
+					"pass": 0,
+					"fail": 1
+				},
+				"check lastName is updated ": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				120
+			],
+			"allTests": [
+				{
+					"check firstName is updated ": false,
+					"check lastName is updated ": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 11415,
+	"collection": {
+		"requests": [
+			{
+				"id": "6972cedd-b5ee-43fc-9a95-42ba9626344e",
+				"method": "GET"
+			},
+			{
+				"id": "27aa5d37-e1f5-406f-a7bb-e5a0accffd89",
+				"method": "GET"
+			},
+			{
+				"id": "dc9328c6-9cb1-4f77-ab07-daa31c970b3d",
+				"method": "POST"
+			},
+			{
+				"id": "989ea312-15be-4928-aac2-95bc1b7e0516",
+				"method": "POST"
+			},
+			{
+				"id": "55e26369-cfd6-49ec-85bc-76be357e872e",
+				"method": "GET"
+			},
+			{
+				"id": "14a08440-62fc-4996-94a3-b789e82bfa37",
+				"method": "PUT"
+			},
+			{
+				"id": "420be598-cd78-4f1a-9c3e-f2a33aa0a0c3",
+				"method": "GET"
+			}
+		]
+	}
+}
