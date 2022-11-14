@@ -2,11 +2,12 @@
 	"info": {
 		"_postman_id": "c58abe13-1e6e-4145-9fae-f0c276888ec8",
 		"name": "SwaggerCollection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10568894"
 	},
 	"item": [
 		{
-			"name": "checkStatusOfAuthers",
+			"name": "checkStatusOfAuther Copy",
 			"event": [
 				{
 					"listen": "test",
@@ -43,7 +44,7 @@
 			"response": []
 		},
 		{
-			"name": "checkOwmPropertiesOfAuthers",
+			"name": "checkOwmPropertiesOfAuthers Copy",
 			"event": [
 				{
 					"listen": "test",
@@ -92,7 +93,7 @@
 			"response": []
 		},
 		{
-			"name": "RegisterWithValidAuther",
+			"name": "RegisterWithValidAuther Copy",
 			"event": [
 				{
 					"listen": "test",
@@ -138,7 +139,7 @@
 			"response": []
 		},
 		{
-			"name": "RegisterWithoutRequestBody",
+			"name": "RegisterWithoutRequestBody Copy",
 			"event": [
 				{
 					"listen": "test",
@@ -181,7 +182,7 @@
 			"response": []
 		},
 		{
-			"name": "searchIdBook",
+			"name": "searchIdBook Copy",
 			"event": [
 				{
 					"listen": "test",
@@ -192,7 +193,6 @@
 							"    pm.expect(pm.response.status).to.equal(\"OK\")\r",
 							"});\r",
 							"\r",
-							"pm.collectionVariables.set(\"bookID\",2);\r",
 							"var getBookId=pm.collectionVariables.get(\"bookID\")\r",
 							"\r",
 							"var jsonData = pm.response.json();\r",
@@ -202,6 +202,15 @@
 							"    pm.expect(pm.response.json()[i].idBook).to.equal(getBookId)\r",
 							"    }});\r",
 							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"bookID\",2);"
 						],
 						"type": "text/javascript"
 					}
@@ -235,7 +244,7 @@
 			"response": []
 		},
 		{
-			"name": "UpdateFirst&LastName",
+			"name": "UpdateFirst&LastName Copy",
 			"event": [
 				{
 					"listen": "test",
@@ -282,7 +291,7 @@
 			"response": []
 		},
 		{
-			"name": "checkdatachangedAfterUpdate",
+			"name": "checkdatachangedAfterUpdate Copy",
 			"event": [
 				{
 					"listen": "test",

@@ -1,18 +1,18 @@
 {
-	"id": "e5e9235c-9cc6-4aed-9b67-ee36f8606c66",
+	"id": "5d079025-a50e-43bc-91c5-4de2a642a66b",
 	"name": "SwaggerCollection",
-	"timestamp": "2022-11-13T10:03:49.507Z",
+	"timestamp": "2022-11-14T20:59:03.191Z",
 	"collection_id": "10568894-c58abe13-1e6e-4145-9fae-f0c276888ec8",
 	"folder_id": 0,
-	"environment_id": "927cdfa7-c618-4ccb-9b52-13c5ba0fc6b5",
+	"environment_id": "10568894-927cdfa7-c618-4ccb-9b52-13c5ba0fc6b5",
 	"totalPass": 10,
 	"totalFail": 5,
 	"results": [
 		{
-			"id": "6972cedd-b5ee-43fc-9a95-42ba9626344e",
-			"name": "checkStatusOfAuthers",
+			"id": "e159d93b-2163-42a5-a076-d383309c555b",
+			"name": "checkStatusOfAuther Copy",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 2129,
+			"time": 596,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -32,7 +32,7 @@
 				}
 			},
 			"times": [
-				2129
+				596
 			],
 			"allTests": [
 				{
@@ -42,10 +42,10 @@
 			]
 		},
 		{
-			"id": "27aa5d37-e1f5-406f-a7bb-e5a0accffd89",
-			"name": "checkOwmPropertiesOfAuthers",
+			"id": "3212ef4b-7c32-455b-bf7a-cfa54ded9b2a",
+			"name": "checkOwmPropertiesOfAuthers Copy",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 6823,
+			"time": 354,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -75,7 +75,7 @@
 				}
 			},
 			"times": [
-				6823
+				354
 			],
 			"allTests": [
 				{
@@ -87,10 +87,10 @@
 			]
 		},
 		{
-			"id": "dc9328c6-9cb1-4f77-ab07-daa31c970b3d",
-			"name": "RegisterWithValidAuther",
+			"id": "b1087a5c-3db6-4a82-91c0-44b03b520294",
+			"name": "RegisterWithValidAuther Copy",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 755,
+			"time": 111,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -110,7 +110,7 @@
 				}
 			},
 			"times": [
-				755
+				111
 			],
 			"allTests": [
 				{
@@ -120,10 +120,10 @@
 			]
 		},
 		{
-			"id": "989ea312-15be-4928-aac2-95bc1b7e0516",
-			"name": "RegisterWithoutRequestBody",
+			"id": "5a38c187-f1c9-4492-b0f5-7a9cb29734a0",
+			"name": "RegisterWithoutRequestBody Copy",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors",
-			"time": 473,
+			"time": 136,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -138,7 +138,7 @@
 				}
 			},
 			"times": [
-				473
+				136
 			],
 			"allTests": [
 				{
@@ -147,10 +147,10 @@
 			]
 		},
 		{
-			"id": "55e26369-cfd6-49ec-85bc-76be357e872e",
-			"name": "searchIdBook",
+			"id": "adc4a2ca-7a82-4090-b996-e0833e19c8c5",
+			"name": "searchIdBook Copy",
 			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/2",
-			"time": 402,
+			"time": 615,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -170,7 +170,7 @@
 				}
 			},
 			"times": [
-				402
+				615
 			],
 			"allTests": [
 				{
@@ -180,10 +180,10 @@
 			]
 		},
 		{
-			"id": "14a08440-62fc-4996-94a3-b789e82bfa37",
-			"name": "UpdateFirst&LastName",
-			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/14",
-			"time": 713,
+			"id": "0bacd1c6-b851-4073-83f8-c5835966eec6",
+			"name": "UpdateFirst&LastName Copy",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/2",
+			"time": 122,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -203,7 +203,7 @@
 				}
 			},
 			"times": [
-				713
+				122
 			],
 			"allTests": [
 				{
@@ -213,10 +213,10 @@
 			]
 		},
 		{
-			"id": "420be598-cd78-4f1a-9c3e-f2a33aa0a0c3",
-			"name": "checkdatachangedAfterUpdate",
-			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/14",
-			"time": 120,
+			"id": "55477cd4-3a32-4762-a2bc-9356bb4d26f6",
+			"name": "checkdatachangedAfterUpdate Copy",
+			"url": "http://fakerestapi.azurewebsites.net/api/v1/Authors/2",
+			"time": 577,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -236,7 +236,7 @@
 				}
 			},
 			"times": [
-				120
+				577
 			],
 			"allTests": [
 				{
@@ -247,35 +247,35 @@
 		}
 	],
 	"count": 1,
-	"totalTime": 11415,
+	"totalTime": 2511,
 	"collection": {
 		"requests": [
 			{
-				"id": "6972cedd-b5ee-43fc-9a95-42ba9626344e",
+				"id": "e159d93b-2163-42a5-a076-d383309c555b",
 				"method": "GET"
 			},
 			{
-				"id": "27aa5d37-e1f5-406f-a7bb-e5a0accffd89",
+				"id": "3212ef4b-7c32-455b-bf7a-cfa54ded9b2a",
 				"method": "GET"
 			},
 			{
-				"id": "dc9328c6-9cb1-4f77-ab07-daa31c970b3d",
+				"id": "b1087a5c-3db6-4a82-91c0-44b03b520294",
 				"method": "POST"
 			},
 			{
-				"id": "989ea312-15be-4928-aac2-95bc1b7e0516",
+				"id": "5a38c187-f1c9-4492-b0f5-7a9cb29734a0",
 				"method": "POST"
 			},
 			{
-				"id": "55e26369-cfd6-49ec-85bc-76be357e872e",
+				"id": "adc4a2ca-7a82-4090-b996-e0833e19c8c5",
 				"method": "GET"
 			},
 			{
-				"id": "14a08440-62fc-4996-94a3-b789e82bfa37",
+				"id": "0bacd1c6-b851-4073-83f8-c5835966eec6",
 				"method": "PUT"
 			},
 			{
-				"id": "420be598-cd78-4f1a-9c3e-f2a33aa0a0c3",
+				"id": "55477cd4-3a32-4762-a2bc-9356bb4d26f6",
 				"method": "GET"
 			}
 		]

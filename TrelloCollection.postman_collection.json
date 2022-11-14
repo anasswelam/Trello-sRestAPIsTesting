@@ -30,7 +30,7 @@
 							"});\r",
 							"\r",
 							"    var boardID=pm.response.json().id ;\r",
-							"    pm.collectionVariables.set(\"boardID\", pm.response.json().id);"
+							"    pm.collectionVariables.set(\"boardID\", boardID);"
 						],
 						"type": "text/javascript"
 					}
@@ -138,64 +138,6 @@
 			"response": []
 		},
 		{
-			"name": "DeleteBoard",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {\r",
-							"    pm.response.to.have.status(200);\r",
-							"});\r",
-							"\r",
-							"pm.test(\"check that board is removed successfully\", function () {\r",
-							" pm.expect(pm.response.json()._value).to.equal(null)\r",
-							"});\r",
-							"\r",
-							"pm.test(\"Response Body should contain a meaningful message\", function () {\r",
-							" pm.expect(pm.response.json().message).to.include(\"board is removed successfully\")\r",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "https://api.trello.com/1/boards/{{boardID}}?key={{key}}&token={{token}}",
-					"protocol": "https",
-					"host": [
-						"api",
-						"trello",
-						"com"
-					],
-					"path": [
-						"1",
-						"boards",
-						"{{boardID}}"
-					],
-					"query": [
-						{
-							"key": "key",
-							"value": "{{key}}"
-						},
-						{
-							"key": "token",
-							"value": "{{token}}"
-						},
-						{
-							"key": "name",
-							"value": null,
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "CreateList_verifyKeys",
 			"event": [
 				{
@@ -220,7 +162,9 @@
 							"\r",
 							"pm.test(\"Verify that limits object is empty\",function(){\r",
 							"    pm.expect(pm.response.json().limits).is.not.haveOwnProperty\r",
-							"});"
+							"});\r",
+							"var listID = pm.response.json().id;\r",
+							"pm.collectionVariables.set(\"listID\",listID);"
 						],
 						"type": "text/javascript"
 					}
@@ -230,7 +174,7 @@
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/boards/wK5nrIyN/lists?name={{ListName}}&key={{key}}&token={{token}}",
+					"raw": "https://api.trello.com/1/boards/{{boardID}}/lists?name={{ListName}}&key={{key}}&token={{token}}",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -240,7 +184,7 @@
 					"path": [
 						"1",
 						"boards",
-						"wK5nrIyN",
+						"{{boardID}}",
 						"lists"
 					],
 					"query": [
@@ -301,12 +245,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/wK5nrIyN/lists?key={{key}}&token={{token}}",
+					"raw": "{{url}}/{{boardID}}/lists?key={{key}}&token={{token}}",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
-						"wK5nrIyN",
+						"{{boardID}}",
 						"lists"
 					],
 					"query": [
@@ -346,7 +290,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "https://api.trello.com/1/lists/636d93a4a39a6b05772e353a/closed?key={{key}}&token={{token}}&value=true",
+					"raw": "https://api.trello.com/1/lists/{{listID}}/closed?key={{key}}&token={{token}}&value=true",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -356,7 +300,7 @@
 					"path": [
 						"1",
 						"lists",
-						"636d93a4a39a6b05772e353a",
+						"{{listID}}",
 						"closed"
 					],
 					"query": [
@@ -371,6 +315,64 @@
 						{
 							"key": "value",
 							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteBoard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"check that board is removed successfully\", function () {\r",
+							" pm.expect(pm.response.json()._value).to.equal(null)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Body should contain a meaningful message\", function () {\r",
+							" pm.expect(pm.response.json().message).to.include(\"board is removed successfully\")\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/{{boardID}}?key={{key}}&token={{token}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{boardID}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{key}}"
+						},
+						{
+							"key": "token",
+							"value": "{{token}}"
+						},
+						{
+							"key": "name",
+							"value": null,
+							"disabled": true
 						}
 					]
 				}
@@ -401,11 +403,11 @@
 	"variable": [
 		{
 			"key": "key",
-			"value": "1f146a155188ff0939d7da0f310a3f30"
+			"value": "0120a06800fbffb728e2aafe89ed52c8"
 		},
 		{
 			"key": "token",
-			"value": "3fbc8c09245a3647f459851a643d96a1fae4d27d3e70faf496513659d0746ed9"
+			"value": "8967a82ecad20afdd6f0df31c0a6db53922d57432c9067b0bce4aedd6391c2bd"
 		},
 		{
 			"key": "name",
